@@ -13,7 +13,27 @@ def normalize_answer(text: str) -> str:
 
 def load_dataset(path: str | Path) -> list[QAExample]:
     raw = json.loads(Path(path).read_text(encoding="utf-8"))
-    return [QAExample.model_validate(item) for item in raw]
+    examples = []
+    for item in raw:
+        # Kiểm tra xem đây là data thô của HotpotQA hay data đã được format
+        if "_id" in item:
+            context_chunks = []
+            for title, sentences in item.get("context", []):
+                # Nối các câu lại thành một đoạn văn
+                text = " ".join(sentences) if isinstance(sentences, list) else sentences
+                context_chunks.append({"title": title, "text": text})
+            
+            converted_item = {
+                "qid": item["_id"],
+                "difficulty": item.get("level", "medium"),
+                "question": item["question"],
+                "gold_answer": item["answer"],
+                "context": context_chunks
+            }
+            examples.append(QAExample.model_validate(converted_item))
+        else:
+            examples.append(QAExample.model_validate(item))
+    return examples
 
 def save_jsonl(path: str | Path, records: Iterable[RunRecord]) -> None:
     path = Path(path)

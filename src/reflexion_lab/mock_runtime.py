@@ -1,26 +1,89 @@
-from __future__ import annotations
+import os
+from typing import List
+from dotenv import load_dotenv
+from openai import OpenAI
+
 from .schemas import QAExample, JudgeResult, ReflectionEntry
-from .utils import normalize_answer
+from .prompts import ACTOR_SYSTEM, EVALUATOR_SYSTEM, REFLECTOR_SYSTEM
 
-FIRST_ATTEMPT_WRONG = {"hp2": "London", "hp4": "Atlantic Ocean", "hp6": "Red Sea", "hp8": "Andes"}
-FAILURE_MODE_BY_QID = {"hp2": "incomplete_multi_hop", "hp4": "wrong_final_answer", "hp6": "entity_drift", "hp8": "entity_drift"}
+# Load environment variables
+load_dotenv()
 
-def actor_answer(example: QAExample, attempt_id: int, agent_type: str, reflection_memory: list[str]) -> str:
-    if example.qid not in FIRST_ATTEMPT_WRONG:
-        return example.gold_answer
-    if agent_type == "react":
-        return FIRST_ATTEMPT_WRONG[example.qid]
-    if attempt_id == 1 and not reflection_memory:
-        return FIRST_ATTEMPT_WRONG[example.qid]
-    return example.gold_answer
+# Khởi tạo OpenAI client trỏ tới Deepseek API
+client = OpenAI(
+    api_key=os.environ.get("DEEPSEEK_API_KEY"),
+    base_url="https://api.deepseek.com"
+)
+
+# Sử dụng deepseek-chat. Model này đủ tốt nhưng nếu gặp câu hỏi phức tạp (multi-hop) mà không có Reflection thì vẫn có thể sai.
+MODEL_NAME = "deepseek-chat"
+
+def actor_answer(example: QAExample, attempt_id: int, agent_type: str, reflection_memory: list[str]) -> tuple[str, int]:
+    """Gọi LLM để trả lời câu hỏi dựa trên ngữ cảnh."""
+    
+    # 1. Ghép context lại thành văn bản
+    context_text = "\n\n".join([f"[{chunk.title}]: {chunk.text}" for chunk in example.context])
+    
+    # 2. Xây dựng câu hỏi cho LLM
+    user_prompt = f"Context:\n{context_text}\n\nQuestion: {example.question}"
+    
+    # 3. Nếu có rút kinh nghiệm từ lần chạy trước, đưa luôn vào để LLM học hỏi
+    if reflection_memory:
+        memories = "\n".join(reflection_memory)
+        user_prompt += f"\n\nReflection Memory (DO NOT REPEAT PREVIOUS MISTAKES):\n{memories}"
+    
+    # 4. Gửi request tới Groq
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": ACTOR_SYSTEM},
+            {"role": "user", "content": user_prompt}
+        ],
+        temperature=0.4, # Để thấp một chút cho câu trả lời ổn định
+        max_tokens=256
+    )
+    
+    return response.choices[0].message.content.strip(), response.usage.total_tokens if response.usage else 0
 
 def evaluator(example: QAExample, answer: str) -> JudgeResult:
-    if normalize_answer(example.gold_answer) == normalize_answer(answer):
-        return JudgeResult(score=1, reason="Final answer matches the gold answer after normalization.")
-    if normalize_answer(answer) == "london":
-        return JudgeResult(score=0, reason="The answer stopped at the birthplace city and never completed the second hop to the river.", missing_evidence=["Need to identify the river that flows through London."], spurious_claims=[])
-    return JudgeResult(score=0, reason="The final answer selected the wrong second-hop entity.", missing_evidence=["Need to ground the answer in the second paragraph."], spurious_claims=[answer])
+    """Gọi LLM để chấm điểm câu trả lời."""
+    
+    user_prompt = f"Question: {example.question}\nGold Answer: {example.gold_answer}\nPredicted Answer: {answer}"
+    
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": EVALUATOR_SYSTEM},
+            {"role": "user", "content": user_prompt}
+        ],
+        temperature=0.0, # Chấm điểm cần sự chính xác tuyệt đối
+        response_format={"type": "json_object"} # Bắt buộc LLM trả về JSON
+    )
+    
+    json_response = response.choices[0].message.content
+    # Parse chuỗi JSON thành object JudgeResult (tự động validate)
+    return JudgeResult.model_validate_json(json_response), response.usage.total_tokens if response.usage else 0
 
 def reflector(example: QAExample, attempt_id: int, judge: JudgeResult) -> ReflectionEntry:
-    strategy = "Do the second hop explicitly: birthplace city -> river through that city." if example.qid == "hp2" else "Verify the final entity against the second paragraph before answering."
-    return ReflectionEntry(attempt_id=attempt_id, failure_reason=judge.reason, lesson="A partial first-hop answer is not enough; the final answer must complete all hops.", next_strategy=strategy)
+    """Gọi LLM để phân tích lý do sai và đề xuất chiến thuật."""
+    
+    # Đưa vào câu trả lời sai và lý do sai mà giám khảo vừa chấm
+    user_prompt = f"Question: {example.question}\nWrong Answer: {judge.spurious_claims}\nEvaluator's Reason for Failure: {judge.reason}"
+    
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": REFLECTOR_SYSTEM},
+            {"role": "user", "content": user_prompt}
+        ],
+        temperature=0.5, # Để hơi cao tí cho model suy nghĩ linh hoạt hơn
+        response_format={"type": "json_object"}
+    )
+    
+    json_response = response.choices[0].message.content
+    
+    # Parse chuỗi JSON thành đối tượng ReflectionEntry. 
+    # Mẹo nhỏ: LLM có thể quên trả về attempt_id, ta có thể tự gán đè lên cho an toàn.
+    entry = ReflectionEntry.model_validate_json(json_response)
+    entry.attempt_id = attempt_id
+    return entry, response.usage.total_tokens if response.usage else 0

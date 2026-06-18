@@ -23,7 +23,7 @@ def main(report_path: str = "outputs/sample_run/report.json") -> None:
     summary = payload.get("summary", {})
     if "react" in summary and "reflexion" in summary:
         exp_points += 10
-    if payload.get("meta", {}).get("num_records", 0) >= 100:  # Changed from 16 to 100 as per new requirement
+    if payload.get("meta", {}).get("num_records", 0) >= 50:  # Changed to 50 as requested by user
         exp_points += 10
     if len(payload.get("examples", [])) >= 20:
         exp_points += 10

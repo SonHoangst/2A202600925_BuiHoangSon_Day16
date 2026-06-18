@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import random
 from pathlib import Path
 import typer
 from rich import print
@@ -11,6 +12,8 @@ app = typer.Typer(add_completion=False)
 @app.command()
 def main(dataset: str = "data/hotpot_mini.json", out_dir: str = "outputs/sample_run", reflexion_attempts: int = 3) -> None:
     examples = load_dataset(dataset)
+    if len(examples) > 50:
+        examples = random.sample(examples, 50) # Lấy ngẫu nhiên 50 câu
     react = ReActAgent()
     reflexion = ReflexionAgent(max_attempts=reflexion_attempts)
     react_records = [react.run(example) for example in examples]
