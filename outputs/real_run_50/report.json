@@ -1,0 +1,1052 @@
+{
+  "meta": {
+    "dataset": "hotpot_dev_distractor_v1.json",
+    "mode": "mock",
+    "num_records": 100,
+    "agents": [
+      "react",
+      "reflexion"
+    ]
+  },
+  "summary": {
+    "react": {
+      "count": 50,
+      "em": 0.78,
+      "avg_attempts": 1,
+      "avg_token_estimate": 1778.32,
+      "avg_latency_ms": 2458.36
+    },
+    "reflexion": {
+      "count": 50,
+      "em": 0.98,
+      "avg_attempts": 1.24,
+      "avg_token_estimate": 2387.8,
+      "avg_latency_ms": 3574.52
+    },
+    "delta_reflexion_minus_react": {
+      "em_abs": 0.2,
+      "attempts_abs": 0.24,
+      "tokens_abs": 609.48,
+      "latency_abs": 1116.16
+    }
+  },
+  "failure_modes": {
+    "react": {
+      "none": 39,
+      "wrong_final_answer": 11
+    },
+    "reflexion": {
+      "none": 49,
+      "wrong_final_answer": 1
+    }
+  },
+  "examples": [
+    {
+      "qid": "5ac3e01d5542997ea680c969",
+      "agent_type": "react",
+      "gold_answer": "Division of Sydney",
+      "predicted_answer": "Division of Sydney",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab7ef0f5542991d322237ca",
+      "agent_type": "react",
+      "gold_answer": "Bangkok",
+      "predicted_answer": "Bangkok",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ac017945542997d642959bc",
+      "agent_type": "react",
+      "gold_answer": "\"Hacksaw Ridge\"",
+      "predicted_answer": "Hacksaw Ridge",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adec7925542995534e8c70d",
+      "agent_type": "react",
+      "gold_answer": "Intelligent Design",
+      "predicted_answer": "Intelligent Design: The Bridge Between Science and Theology",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adbfc945542996e68525296",
+      "agent_type": "react",
+      "gold_answer": "1430",
+      "predicted_answer": "c. 1430",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab1ec725542993be8fa9883",
+      "agent_type": "react",
+      "gold_answer": "Stoloff",
+      "predicted_answer": "Ulli Lommel",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab46a0f5542990594ba9c1b",
+      "agent_type": "react",
+      "gold_answer": "University of Mississippi",
+      "predicted_answer": "The provided context does not mention Leigh Anne Tuohy's son playing college football.",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a9068075542990a9849361a",
+      "agent_type": "react",
+      "gold_answer": "Ramsey has also worked with other well-known artists",
+      "predicted_answer": "Sly Stone is a musician, songwriter, and record producer, while Mary Ramsey is a singer and violinist.",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adfa92d55429942ec259ae0",
+      "agent_type": "react",
+      "gold_answer": "yes",
+      "predicted_answer": "Yes",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab56db7554299494045efc6",
+      "agent_type": "react",
+      "gold_answer": "York County",
+      "predicted_answer": "York County",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab484415542990594ba9c44",
+      "agent_type": "react",
+      "gold_answer": "Discovery Zone",
+      "predicted_answer": "Discovery Zone",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae69e6d5542996d980e7c62",
+      "agent_type": "react",
+      "gold_answer": "Flaw",
+      "predicted_answer": "Flaw",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5abd605155429924427fcfc9",
+      "agent_type": "react",
+      "gold_answer": "841",
+      "predicted_answer": "841",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adcb4ae5542994734353774",
+      "agent_type": "react",
+      "gold_answer": "VH1",
+      "predicted_answer": "VH1",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a760faa5542994ccc9186a8",
+      "agent_type": "react",
+      "gold_answer": "Love Streams",
+      "predicted_answer": "Love Streams",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a72df275542992359bc31b3",
+      "agent_type": "react",
+      "gold_answer": "\"Brotherly Leader\" of the Great Socialist People's Libyan Arab Jamahiriya",
+      "predicted_answer": "Brotherly Leader",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a88082055429938390d3ed2",
+      "agent_type": "react",
+      "gold_answer": "Israeli Declaration of Independence",
+      "predicted_answer": "Israeli Declaration of Independence",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adcdc6c5542992c1e3a2437",
+      "agent_type": "react",
+      "gold_answer": "people arrived in the European Union",
+      "predicted_answer": "The European migrant crisis.",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae446825542995ad6573d21",
+      "agent_type": "react",
+      "gold_answer": "Terry Malloy",
+      "predicted_answer": "Terry Malloy",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae1fb7a554299234fd04383",
+      "agent_type": "react",
+      "gold_answer": "Memphis",
+      "predicted_answer": "Pleven, Bulgaria",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae5fb2d554299546bf82ff5",
+      "agent_type": "react",
+      "gold_answer": "\u00c6thelwald Moll",
+      "predicted_answer": "\u00c6thelwald Moll",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a78d38455429970f5fffd94",
+      "agent_type": "react",
+      "gold_answer": "Angelina Jolie",
+      "predicted_answer": "Julian Assange",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5aba9e2455429939ce03dd3a",
+      "agent_type": "react",
+      "gold_answer": "1909",
+      "predicted_answer": "1909",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab587ad5542992aa134a34b",
+      "agent_type": "react",
+      "gold_answer": "Charles Lutwidge Dodgson",
+      "predicted_answer": "Charles Lutwidge Dodgson",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab9188c5542991b5579f0f5",
+      "agent_type": "react",
+      "gold_answer": "rock band",
+      "predicted_answer": "The Stone Roses play rock music, and The Lemonheads play alternative rock.",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adf6b405542992d7e9f9341",
+      "agent_type": "react",
+      "gold_answer": "Heather Graham",
+      "predicted_answer": "Heather Graham Pozzessere",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a85ae455542997175ce1ff0",
+      "agent_type": "react",
+      "gold_answer": "stunt performances",
+      "predicted_answer": "Stunt performer",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ade858a55429975fa854eea",
+      "agent_type": "react",
+      "gold_answer": "tennis",
+      "predicted_answer": "Tennis",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a88ca4e55429938390d3fc2",
+      "agent_type": "react",
+      "gold_answer": "Prince George of Cambridge",
+      "predicted_answer": "Hugh Grosvenor",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ac2759655429921a00aaf7f",
+      "agent_type": "react",
+      "gold_answer": "rock",
+      "predicted_answer": "Rock",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a8595a85542992a431d1b48",
+      "agent_type": "react",
+      "gold_answer": "Great Exuma",
+      "predicted_answer": "Great Exuma",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab2c6a955429916697740c2",
+      "agent_type": "react",
+      "gold_answer": "China",
+      "predicted_answer": "China",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab416a25542996a3a969f28",
+      "agent_type": "react",
+      "gold_answer": "Caribbean",
+      "predicted_answer": "Caribbean",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae1465855429920d5234373",
+      "agent_type": "react",
+      "gold_answer": "New York Yankees",
+      "predicted_answer": "New York Yankees",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a85018d5542997b5ce3ff98",
+      "agent_type": "react",
+      "gold_answer": "Barbara Niven",
+      "predicted_answer": "Barbara Niven",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a773ec355429966f1a36ccb",
+      "agent_type": "react",
+      "gold_answer": "Liz",
+      "predicted_answer": "Liz",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a84f7255542991dd0999e33",
+      "agent_type": "react",
+      "gold_answer": "Republic of Chad",
+      "predicted_answer": "Chad",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae497595542995ad6573db7",
+      "agent_type": "react",
+      "gold_answer": "plant",
+      "predicted_answer": "Stauntonia is a genus of flowering plant in the Lardizabalaceae family. Pimelea is a genus of plants belonging to the family Thymelaeaceae.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a7415cf55429979e28828a6",
+      "agent_type": "react",
+      "gold_answer": "1940",
+      "predicted_answer": "1940 to 1944",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adfda5255429942ec259b5e",
+      "agent_type": "react",
+      "gold_answer": "Douglas",
+      "predicted_answer": "Douglas County",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a9051615542995651fb5136",
+      "agent_type": "react",
+      "gold_answer": "18.7 miles",
+      "predicted_answer": "18.7 miles",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab9cfe655429970cfb8ebaf",
+      "agent_type": "react",
+      "gold_answer": "January 15, 1975",
+      "predicted_answer": "January 15, 1975",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a72bbfa5542992359bc318d",
+      "agent_type": "react",
+      "gold_answer": "University of Washington",
+      "predicted_answer": "University of Washington",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5abcee275542993a06baf9af",
+      "agent_type": "react",
+      "gold_answer": "1978",
+      "predicted_answer": "1978",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a8cdcb0554299441c6b9f33",
+      "agent_type": "react",
+      "gold_answer": "yes",
+      "predicted_answer": "Yes.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae4ad3155429913cc2044cb",
+      "agent_type": "react",
+      "gold_answer": "yes",
+      "predicted_answer": "Yes",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ac3b9c5554299657fa2911b",
+      "agent_type": "react",
+      "gold_answer": "Bob Dylan",
+      "predicted_answer": "Tom Petty",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a7f35015542992e7d278c8a",
+      "agent_type": "react",
+      "gold_answer": "1754",
+      "predicted_answer": "1754",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a80799b5542992bc0c4a72e",
+      "agent_type": "react",
+      "gold_answer": "Panzer",
+      "predicted_answer": "XIX Corps",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a8f2ba155429918e830d1b9",
+      "agent_type": "react",
+      "gold_answer": "Hong Kong Disneyland",
+      "predicted_answer": "Hong Kong Disneyland",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ac3e01d5542997ea680c969",
+      "agent_type": "reflexion",
+      "gold_answer": "Division of Sydney",
+      "predicted_answer": "Division of Sydney",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab7ef0f5542991d322237ca",
+      "agent_type": "reflexion",
+      "gold_answer": "Bangkok",
+      "predicted_answer": "Bangkok",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ac017945542997d642959bc",
+      "agent_type": "reflexion",
+      "gold_answer": "\"Hacksaw Ridge\"",
+      "predicted_answer": "Hacksaw Ridge",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adec7925542995534e8c70d",
+      "agent_type": "reflexion",
+      "gold_answer": "Intelligent Design",
+      "predicted_answer": "Intelligent Design: The Bridge Between Science and Theology",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "5adbfc945542996e68525296",
+      "agent_type": "reflexion",
+      "gold_answer": "1430",
+      "predicted_answer": "c. 1430",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab1ec725542993be8fa9883",
+      "agent_type": "reflexion",
+      "gold_answer": "Stoloff",
+      "predicted_answer": "Benjamin Stoloff",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab46a0f5542990594ba9c1b",
+      "agent_type": "reflexion",
+      "gold_answer": "University of Mississippi",
+      "predicted_answer": "University of Mississippi",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5a9068075542990a9849361a",
+      "agent_type": "reflexion",
+      "gold_answer": "Ramsey has also worked with other well-known artists",
+      "predicted_answer": "Sly Stone is most famous as the frontman for Sly and the Family Stone, while Mary Ramsey has worked with other well-known artists such as Jackson Browne, Goo Goo Dolls, Billy Bragg, Warren Zevon, Alex Chilton and Ani DiFranco.",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5adfa92d55429942ec259ae0",
+      "agent_type": "reflexion",
+      "gold_answer": "yes",
+      "predicted_answer": "Yes",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab56db7554299494045efc6",
+      "agent_type": "reflexion",
+      "gold_answer": "York County",
+      "predicted_answer": "York County",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab484415542990594ba9c44",
+      "agent_type": "reflexion",
+      "gold_answer": "Discovery Zone",
+      "predicted_answer": "Discovery Zone",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae69e6d5542996d980e7c62",
+      "agent_type": "reflexion",
+      "gold_answer": "Flaw",
+      "predicted_answer": "Flaw",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5abd605155429924427fcfc9",
+      "agent_type": "reflexion",
+      "gold_answer": "841",
+      "predicted_answer": "841",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adcb4ae5542994734353774",
+      "agent_type": "reflexion",
+      "gold_answer": "VH1",
+      "predicted_answer": "VH1",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a760faa5542994ccc9186a8",
+      "agent_type": "reflexion",
+      "gold_answer": "Love Streams",
+      "predicted_answer": "Love Streams",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a72df275542992359bc31b3",
+      "agent_type": "reflexion",
+      "gold_answer": "\"Brotherly Leader\" of the Great Socialist People's Libyan Arab Jamahiriya",
+      "predicted_answer": "Brotherly Leader of the Great Socialist People's Libyan Arab Jamahiriya",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a88082055429938390d3ed2",
+      "agent_type": "reflexion",
+      "gold_answer": "Israeli Declaration of Independence",
+      "predicted_answer": "Israeli Declaration of Independence",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adcdc6c5542992c1e3a2437",
+      "agent_type": "reflexion",
+      "gold_answer": "people arrived in the European Union",
+      "predicted_answer": "people arrived in the European Union",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5ae446825542995ad6573d21",
+      "agent_type": "reflexion",
+      "gold_answer": "Terry Malloy",
+      "predicted_answer": "Terry Malloy",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae1fb7a554299234fd04383",
+      "agent_type": "reflexion",
+      "gold_answer": "Memphis",
+      "predicted_answer": "Memphis, Tennessee",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5ae5fb2d554299546bf82ff5",
+      "agent_type": "reflexion",
+      "gold_answer": "\u00c6thelwald Moll",
+      "predicted_answer": "\u00c6thelwald Moll",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a78d38455429970f5fffd94",
+      "agent_type": "reflexion",
+      "gold_answer": "Angelina Jolie",
+      "predicted_answer": "Angelina Jolie",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5aba9e2455429939ce03dd3a",
+      "agent_type": "reflexion",
+      "gold_answer": "1909",
+      "predicted_answer": "1909",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab587ad5542992aa134a34b",
+      "agent_type": "reflexion",
+      "gold_answer": "Charles Lutwidge Dodgson",
+      "predicted_answer": "Charles Lutwidge Dodgson",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab9188c5542991b5579f0f5",
+      "agent_type": "reflexion",
+      "gold_answer": "rock band",
+      "predicted_answer": "The Stone Roses play rock music (English rock band, part of the Madchester movement), and The Lemonheads play alternative rock.",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5adf6b405542992d7e9f9341",
+      "agent_type": "reflexion",
+      "gold_answer": "Heather Graham",
+      "predicted_answer": "Heather Graham Pozzessere",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a85ae455542997175ce1ff0",
+      "agent_type": "reflexion",
+      "gold_answer": "stunt performances",
+      "predicted_answer": "Stunt performer",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ade858a55429975fa854eea",
+      "agent_type": "reflexion",
+      "gold_answer": "tennis",
+      "predicted_answer": "Tennis",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a88ca4e55429938390d3fc2",
+      "agent_type": "reflexion",
+      "gold_answer": "Prince George of Cambridge",
+      "predicted_answer": "Prince George of Cambridge",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5ac2759655429921a00aaf7f",
+      "agent_type": "reflexion",
+      "gold_answer": "rock",
+      "predicted_answer": "Rock",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a8595a85542992a431d1b48",
+      "agent_type": "reflexion",
+      "gold_answer": "Great Exuma",
+      "predicted_answer": "Great Exuma",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab2c6a955429916697740c2",
+      "agent_type": "reflexion",
+      "gold_answer": "China",
+      "predicted_answer": "China",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab416a25542996a3a969f28",
+      "agent_type": "reflexion",
+      "gold_answer": "Caribbean",
+      "predicted_answer": "Caribbean",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae1465855429920d5234373",
+      "agent_type": "reflexion",
+      "gold_answer": "New York Yankees",
+      "predicted_answer": "New York Yankees",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a85018d5542997b5ce3ff98",
+      "agent_type": "reflexion",
+      "gold_answer": "Barbara Niven",
+      "predicted_answer": "Barbara Niven",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a773ec355429966f1a36ccb",
+      "agent_type": "reflexion",
+      "gold_answer": "Liz",
+      "predicted_answer": "Liz",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a84f7255542991dd0999e33",
+      "agent_type": "reflexion",
+      "gold_answer": "Republic of Chad",
+      "predicted_answer": "Chad",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae497595542995ad6573db7",
+      "agent_type": "reflexion",
+      "gold_answer": "plant",
+      "predicted_answer": "Stauntonia is a genus of flowering plant in the Lardizabalaceae family, and Pimelea is a genus of plants belonging to the family Thymelaeaceae.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a7415cf55429979e28828a6",
+      "agent_type": "reflexion",
+      "gold_answer": "1940",
+      "predicted_answer": "1940 to 1944",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5adfda5255429942ec259b5e",
+      "agent_type": "reflexion",
+      "gold_answer": "Douglas",
+      "predicted_answer": "Douglas County",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a9051615542995651fb5136",
+      "agent_type": "reflexion",
+      "gold_answer": "18.7 miles",
+      "predicted_answer": "Shenley is located 18.7 miles from Central London.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ab9cfe655429970cfb8ebaf",
+      "agent_type": "reflexion",
+      "gold_answer": "January 15, 1975",
+      "predicted_answer": "January 15, 1975",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a72bbfa5542992359bc318d",
+      "agent_type": "reflexion",
+      "gold_answer": "University of Washington",
+      "predicted_answer": "University of Washington",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5abcee275542993a06baf9af",
+      "agent_type": "reflexion",
+      "gold_answer": "1978",
+      "predicted_answer": "1978",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a8cdcb0554299441c6b9f33",
+      "agent_type": "reflexion",
+      "gold_answer": "yes",
+      "predicted_answer": "Yes",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ae4ad3155429913cc2044cb",
+      "agent_type": "reflexion",
+      "gold_answer": "yes",
+      "predicted_answer": "Yes",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5ac3b9c5554299657fa2911b",
+      "agent_type": "reflexion",
+      "gold_answer": "Bob Dylan",
+      "predicted_answer": "Bob Dylan",
+      "is_correct": true,
+      "attempts": 3,
+      "failure_mode": "none",
+      "reflection_count": 2
+    },
+    {
+      "qid": "5a7f35015542992e7d278c8a",
+      "agent_type": "reflexion",
+      "gold_answer": "1754",
+      "predicted_answer": "1754",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "5a80799b5542992bc0c4a72e",
+      "agent_type": "reflexion",
+      "gold_answer": "Panzer",
+      "predicted_answer": "Panzer units",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "5a8f2ba155429918e830d1b9",
+      "agent_type": "reflexion",
+      "gold_answer": "Hong Kong Disneyland",
+      "predicted_answer": "Hong Kong Disneyland",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    }
+  ],
+  "extensions": [
+    "structured_evaluator",
+    "reflection_memory",
+    "benchmark_report_json",
+    "mock_mode_for_autograding"
+  ],
+  "discussion": "Reflexion helps when the first attempt stops after the first hop or drifts to a wrong second-hop entity. The tradeoff is higher attempts, token cost, and latency. In a real report, students should explain when the reflection memory was useful, which failure modes remained, and whether evaluator quality limited gains."
+}
